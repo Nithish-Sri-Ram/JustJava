@@ -1,0 +1,2 @@
+ExceptionHandling.NegetiveDimentionException
+ExceptionHandling.ThrowThrows

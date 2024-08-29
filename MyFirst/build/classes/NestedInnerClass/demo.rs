@@ -1,0 +1,10 @@
+NestedInnerClass.Outer$1inr
+NestedInnerClass.demo
+NestedInnerClass.IMy
+NestedInnerClass.Outer$Sinner
+NestedInnerClass.Outer$1
+NestedInnerClass.Outer$3
+NestedInnerClass.My
+NestedInnerClass.Outer$2
+NestedInnerClass.Outer$Inner
+NestedInnerClass.Outer
