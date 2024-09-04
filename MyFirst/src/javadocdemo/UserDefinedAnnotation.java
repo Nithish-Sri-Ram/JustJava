@@ -8,19 +8,19 @@ package javadocdemo;
  *
  * @author nithish
  */
-@interface MyAnno
-{
+@interface MyAnno {
     String name();
     String project();
     String date() default "today";
     String version() default "13";
 }
 
-@MyAnno(name="Ajay",project="Bank")         //all values are madatory to be defined but if we are defining it as default then it is not necessary to mention here
+@MyAnno(name="Ajay", project="Bank") // All values are mandatory to be defined unless they are set with default values.
 public class UserDefinedAnnotation {
     int data;
-    public static void main(String args[])
-    {
+
+    public static void main(String[] args) {
         int x;
+        // Code logic here
     }
 }

@@ -10,34 +10,32 @@ package Collection;
  */
 
 import java.util.*;
+
 public class TokenizerDemo {
-    public static void main(String args[])
-    {
-        //All these name ,address, dept 
-        //and we have string tokens seperated by delimeters, then we can take out the value 
-        String data="name=Vijay;address=delhi;country=India;dept=cse\nThe End";
+    public static void main(String[] args) {
+        // All these names: name, address, dept, etc.
+        // We have string tokens separated by delimiters; we can extract the values.
+        String data = "name=Vijay;address=delhi;country=India;dept=cse\nThe End";
         
-        //We can mention as many delimeters as we want enclosed inside this souble quotes - each char in it is treated as a delimeter and delimeters will be in single char 
-        StringTokenizer stk=new StringTokenizer(data,"=;");
-        //We don't have to give new line as delimeter, and we have to give space as delimeter if need it to be considered as one 
+        // We can specify as many delimiters as we want, enclosed inside double quotes - 
+        // each character in it is treated as a delimiter, and delimiters will be a single character.
+        StringTokenizer stk = new StringTokenizer(data, "=;");
+        // We don't have to give a new line as a delimiter, but we have to give space as a delimiter if we need it to be considered as one.
         
-        //String tokenizer has lot's of simple methods 
+        // StringTokenizer has lots of simple methods.
         String s;
-        while(stk.hasMoreTokens())
-        {
-            //The methods of tokens are just like methods of itereator 
-            s=stk.nextToken();
+        while (stk.hasMoreTokens()) {
+            // The methods of StringTokenizer are just like methods of Iterator.
+            s = stk.nextToken();
             System.out.println(s);
         }
         
-        String num="1,2,3,4,5";
-        ArrayList<Integer> ar=new ArrayList<>();
-        StringTokenizer str=new StringTokenizer(num,",");
-        while(str.hasMoreTokens())
-        {
-            s=str.nextToken();
+        String num = "1,2,3,4,5";
+        ArrayList<Integer> ar = new ArrayList<>();
+        StringTokenizer str = new StringTokenizer(num, ",");
+        while (str.hasMoreTokens()) {
+            s = str.nextToken();
             ar.add(Integer.valueOf(s));
-            
         }
         System.out.println(ar);
     }

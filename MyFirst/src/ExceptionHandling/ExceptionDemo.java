@@ -10,70 +10,59 @@ package ExceptionHandling;
  * @author nithish
  */
 
-//Exception classes
-//object(mother of all exceptions) <- throwable <- [exception,error] 
-//exception <- (classNotFoundException, IOException, InterruptedException, NumberFormatException, [all these are checked exception]) RuntimeExeption
-//RuntimeException <- ArithmeticException, IndexOutOfBoundException, NullPointerException [all these are unckecked exceptions]
+// Exception classes
+// Object (mother of all classes) <- Throwable <- [Exception, Error]
+// Exception <- (ClassNotFoundException, IOException, InterruptedException, NumberFormatException, [all these are checked exceptions]) RuntimeException
+// RuntimeException <- ArithmeticException, IndexOutOfBoundsException, NullPointerException [all these are unchecked exceptions]
 
-//checked and unckecked exce[tion - java's jvm makes it compelsory to write try and catch blocks for certain exceptions but it is not compulsory for unchecked
+// Checked and unchecked exceptions - Java's JVM makes it compulsory to write try and catch blocks for certain exceptions (checked exceptions), 
+// but it is not compulsory for unchecked exceptions.
 
-//When there are multiple catch blocks the hirarchy should be maintained - subClasses should be on the top and the super classes should be at the bottom
+// When there are multiple catch blocks, the hierarchy should be maintained - subClasses should be on the top, and the super classes should be at the bottom.
 
-//multiple try and catch blocks can be used, also nested catch blocks can be used
+// Multiple try and catch blocks can be used, and also nested catch blocks can be used.
 
-//Exception class methods - getMessage(),toString(), orintStackTree()
-// s.o.p(e.getMessage(), s.o.p(e), e.printStackTrees()
+// Exception class methods - getMessage(), toString(), printStackTrace()
+// s.o.p(e.getMessage()), s.o.p(e), e.printStackTrace()
 
-//when defining an exception -it always inherits from the class Exception 
+// When defining a custom exception - it should always inherit from the Exception class.
 
-class  MinBalException extends Exception
-{
-    public String toString()
-    {
+class MinBalException extends Exception {
+    public String toString() {
         return "Minimum balance should be 5000";
     }
 }
 
 public class ExceptionDemo {
     
-    static void fun1()
-    {
-        try
-        {
-            System.out.println(10/0);
-        }
-        catch(Exception e)
-        {
+    static void fun1() {
+        try {
+            System.out.println(10 / 0);
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
-    static void fun2()
-    {
+
+    static void fun2() {
         fun1();
     }
-    static void fun3()
-    {
+
+    static void fun3() {
         fun2();
-        try
-        {
+        try {
             throw new MinBalException();
-        }
-        catch(MinBalException e)
-        {
+        } catch (MinBalException e) {
             System.out.println(e);
         }
     }
-    public static void main(String []args)
-    {
+
+    public static void main(String[] args) {
         fun3();
-        int a=10,b=0,c;
-        try
-        {
-            c=a/b;
+        int a = 10, b = 0, c;
+        try {
+            c = a / b;
             System.out.println(c);
-        }
-        catch(ArithmeticException e)
-        {
+        } catch (ArithmeticException e) {
             System.out.println(e);
         }
         System.out.println("Bye");

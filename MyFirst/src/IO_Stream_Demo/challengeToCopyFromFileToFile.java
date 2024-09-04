@@ -13,31 +13,29 @@ package IO_Stream_Demo;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.SequenceInputStream;
-public class challengeToCopyFromFileToFile {
-    public static void main(String args[]) throws Exception
-    {
-//        try(FileInputStream fis=new FileInputStream("/home/nithish/MyJava/lc.txt")){
-//            byte b[]=new byte[fis.available()];
+
+public class ChallengeToCopyFromFileToFile {
+    public static void main(String[] args) throws Exception {
+        // The following code reads from a file, converts the content to lowercase, and writes it to another file.
+//        try (FileInputStream fis = new FileInputStream("/home/nithish/MyJava/lc.txt")) {
+//            byte[] b = new byte[fis.available()];
 //            fis.read(b);
-//            String str=new String(b);
+//            String str = new String(b);
 //            System.out.println(str);
-//            str=str.toLowerCase();
-//            try(FileOutputStream fos=new FileOutputStream("/home/nithish/MyJava/uc.txt")){
-//                byte s[]=new byte[str.length()];
-//                s=str.getBytes();
+//            str = str.toLowerCase();
+//            try (FileOutputStream fos = new FileOutputStream("/home/nithish/MyJava/uc.txt")) {
+//                byte[] s = str.getBytes();
 //                fos.write(s);
-//                fos.close();
 //            }
-//            fis.close();
 //        }
+
+        // The code below shows how to read from two files simultaneously using SequenceInputStream.
+        FileInputStream fis1 = new FileInputStream("/home/nithish/MyJava/lc.txt");
+        FileInputStream fis2 = new FileInputStream("/home/nithish/MyJava/uc.txt");
+        FileOutputStream fos = new FileOutputStream("/home/nithish/MyJava/destination.txt");
         
-        //The below shows how to read 2 files at a same time using SequenceInputStream
-        FileInputStream fis1=new FileInputStream("/home/nithish/MyJava/lc.txt");
-        FileInputStream fis2=new FileInputStream("/home/nithish/MyJava/uc.txt");
-        FileOutputStream fos=new FileOutputStream("/home/nithish/MyJava/destination.txt");
-        
-        SequenceInputStream sis=new SequenceInputStream(fis1,fis2);
-        byte sq[]=new byte[sis.available()];
+        SequenceInputStream sis = new SequenceInputStream(fis1, fis2);
+        byte[] sq = new byte[sis.available()];
         sis.read(sq);
         fos.write(sq);
         

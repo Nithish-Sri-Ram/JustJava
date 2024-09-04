@@ -11,25 +11,26 @@ package IO_Stream_Demo;
 
 import java.io.*;
 
-class Student
-{
+class Student {
     int rollno;
     String name;
     float avg;
     String dept;
 }
+
 public class DataStreamDemo {
-    public static void main(String args[])throws Exception
-    {
-        //IN the printstream demo we we have to typecast the elements to the required data typw but in the dataStrewam the data will be stored in their own data type so it will 
-//        FileOutputStream fos=new FileOutputStream("/home/nithish/MyJava/TestDataOutputStream.txt");
-//        DataOutputStream dos=new DataOutputStream(fos);
+    public static void main(String[] args) throws Exception {
+        // In the PrintStream demo, we had to typecast the elements to the required data type, 
+        // but in the DataStream, the data will be stored in their own data type.
+
+//        FileOutputStream fos = new FileOutputStream("/home/nithish/MyJava/TestDataOutputStream.txt");
+//        DataOutputStream dos = new DataOutputStream(fos);
 //        
-//        Student s=new Student();
-//        s.rollno=10;
-//        s.name="John";
-////        s.avg=80.5f;
-//        s.dept="CSE";
+//        Student s = new Student();
+//        s.rollno = 10;
+//        s.name = "John";
+////        s.avg = 80.5f;
+//        s.dept = "CSE";
 //        
 //        dos.writeInt(s.rollno);
 //        dos.writeUTF(s.name);
@@ -39,20 +40,20 @@ public class DataStreamDemo {
 //        dos.close();
 //        fos.close();
         
-        //The below is for the dataOutputStream 
-        FileInputStream fis=new FileInputStream("/home/nithish/MyJava/TestDataOutputStream.txt");
-        DataInputStream dis=new DataOutputStream(fis);
+        // The below is for the DataInputStream.
+        FileInputStream fis = new FileInputStream("/home/nithish/MyJava/TestDataOutputStream.txt");
+        DataInputStream dis = new DataInputStream(fis);
         
-        Student s=new Student();
+        Student s = new Student();
         
-        s.rollno=dis.readInt();
-//        s.avg=dis.readFloat();
-        s.name=dis.readUTF();
-        s.dept=dis.readUTF();
+        s.rollno = dis.readInt();
+//        s.avg = dis.readFloat();
+        s.name = dis.readUTF();
+        s.dept = dis.readUTF();
         
-        System.out.println("Roll no: "+s.rollno);
-        System.out.println("Name: "+s.name);
-        System.out.println("Dept: "+s.dept);
+        System.out.println("Roll no: " + s.rollno);
+        System.out.println("Name: " + s.name);
+        System.out.println("Dept: " + s.dept);
         
         dis.close();
         fis.close();

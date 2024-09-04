@@ -9,28 +9,43 @@ package myfirst;
  * @author nithish
  */
 
-class Rectangle
-{
+class Rectangle {
     private double l;
     private double b;
-    public Rectangle()
-    {
-        b=l=1;
-        
+
+    // Default constructor - initializes length and breadth to 1
+    public Rectangle() {
+        b = l = 1;
     }
-    public Rectangle(int s)
-    {
-        l=b=s;
+
+    // Constructor to create a square with side s
+    public Rectangle(int s) {
+        l = b = s;
     }
-    public Rectangle(int l,int b)
-    {
-        this.l=l;
-        this.b=b;
+
+    // Constructor to create a rectangle with specific length and breadth
+    public Rectangle(int l, int b) {
+        this.l = l;
+        this.b = b;
+    }
+
+    // Optionally, you can add getter methods to retrieve the values of l and b
+    public double getLength() {
+        return l;
+    }
+
+    public double getBreadth() {
+        return b;
     }
 }
+
 public class Constructer {
-    public static void main(String [] args)
-    {
-        Rectangle r=new Rectangle(19,5);
+    public static void main(String[] args) {
+        // Create a Rectangle object using the constructor with specific length and breadth
+        Rectangle r = new Rectangle(19, 5);
+        
+        // Optionally, print the dimensions of the rectangle
+        System.out.println("Length: " + r.getLength());
+        System.out.println("Breadth: " + r.getBreadth());
     }
 }

@@ -9,13 +9,13 @@ package javadocdemo;
  * @author nithish
  */
 
-//JavaDoc Tags 
-//Class - @author, @version, @see. @since
-//Method - @param, @return, @throws, @exception, @depracated, @code
-//others - @link, @value. @serial
+// JavaDoc Tags
+// Class-level: @author, @version, @see, @since
+// Method-level: @param, @return, @throws, @exception, @deprecated, @code
+// Other: @link, @value, @serial
+
 public class JavaDocDemo {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
 }

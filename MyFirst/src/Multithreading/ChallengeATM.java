@@ -1,56 +1,68 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Multithreading;
 
 /**
+ * Simulates an ATM usage scenario where two customers attempt to access the ATM concurrently.
+ * Synchronization is used to ensure that the critical sections are accessed by one thread at a time.
  *
  * @author nithish
  */
 
-class ATM
-{
-    synchronized void checkBalance(String name,int amt)
-    {
-        System.out.print(name+": is checking balance.");
-        try{Thread.sleep(1000);}catch(InterruptedException e){}
-        System.out.println("balance: "+amt);
-        
+class ATM {
+    // Synchronized method to check the balance
+    synchronized void checkBalance(String name, int amt) {
+        System.out.print(name + " is checking balance.");
+        try {
+            Thread.sleep(1000); // Simulate time taken to check balance
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println(" Balance: " + amt);
     }
-    synchronized void withdraw(int amt)
-    {
-        System.out.println("Remaining balance is: "+amt);
+
+    // Synchronized method to withdraw money
+    synchronized void withdraw(int amt) {
+        System.out.println("Remaining balance is: " + (amt - 1000)); // Simulating a withdrawal of 1000 units
     }
 }
-class Customer extends Thread
-{
-    ATM a;
+
+class Customer extends Thread {
+    ATM atm;
     String name;
     int amt;
-    Customer(String name,int amt,ATM a)
-    {
-        this.a=a;
-        this.name=name;
-        this.amt=amt;
+
+    Customer(String name, int amt, ATM atm) {
+        this.atm = atm;
+        this.name = name;
+        this.amt = amt;
     }
-    synchronized void useATM()
-    {
-        a.checkBalance(name,amt);
-        a.withdraw(amt);
-        try{Thread.sleep(1000);}catch(InterruptedException e){}
+
+    // Method for using the ATM
+    void useATM() {
+        atm.checkBalance(name, amt);
+        atm.withdraw(amt);
+        try {
+            Thread.sleep(1000); // Simulate time taken to complete the transaction
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
     }
-    public void run()
-    {
+
+    // Override run method to execute the ATM usage in a separate thread
+    public void run() {
         useATM();
     }
 }
+
 public class ChallengeATM {
-    public static void main(String []args)
-    {
-        ATM a=new ATM();
-        Customer one=new Customer("Nithish",9_000_0000,a);
-        Customer two=new Customer("Thangamani",9_999_0000,a);
+    public static void main(String[] args) {
+        // Create a single ATM object to be shared by both customers
+        ATM atm = new ATM();
+
+        // Create two customers who will use the same ATM
+        Customer one = new Customer("Nithish", 9_000_000, atm);
+        Customer two = new Customer("Thangamani", 9_999_000, atm);
+
+        // Start both customer threads
         one.start();
         two.start();
     }

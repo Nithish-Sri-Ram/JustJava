@@ -12,15 +12,14 @@ package IO_Stream_Demo;
 import java.io.*;
 
 public class FileHandling {
-    public static void main(String args[]){
-        File f=new File("/home/nithish/MyJava");
+    public static void main(String[] args) {
+        File f = new File("/home/nithish/MyJava");
         
         System.out.println(f.isDirectory());
-        File list[]=f.listFiles();
+        File list[] = f.listFiles();
         
-        for(File x:list)
-        {
-            System.out.print(x.getName()+"  ");
+        for (File x : list) {
+            System.out.print(x.getName() + "  ");
             System.out.println(x.getPath());
 //            System.out.println(x.getParent());
         }

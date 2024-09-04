@@ -10,15 +10,15 @@ import java.io.FileOutputStream;
  *
  * @author nithish
  */
-public class tryWithRecourcesNetbeansSuggestion {
- public static void main(String args[]) throws Exception
-    {
-        //we can do it like this too to make the code much more readable - though it is not recomended
-            try (FileOutputStream fos = new FileOutputStream("/home/nithish/MyJava/TestTryWithResource.txt")){  //This will throw any kind of exception and we can catch it by definng the throws exception at the top of the main class
-                
-                String str="Learn java programing \n";
-                
-                fos.write(str.getBytes());
-            }
+
+public class TryWithResourcesNetbeansSuggestion {
+    public static void main(String[] args) throws Exception {
+        // We can do it like this too, to make the code much more readable - though it is not recommended in all cases.
+        try (FileOutputStream fos = new FileOutputStream("/home/nithish/MyJava/TestTryWithResource.txt")) {  
+            // This will throw any kind of exception, and we can catch it by defining the throws Exception at the top of the main method.
+            
+            String str = "Learn Java programming \n";
+            fos.write(str.getBytes());
+        }
     }
 }

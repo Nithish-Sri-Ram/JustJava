@@ -8,70 +8,58 @@ package ExceptionHandling;
  *
  * @author nithish
  */
-class NegetiveDimentionException extends Exception
-{
-    public String toString()
-    {
+
+class NegativeDimensionException extends Exception {
+    public String toString() {
         return "Radius can't be negative";
     }
 }
+
 public class ThrowThrows {
-    static int check(int r) throws Exception
-    {
-        if(r<0)
-        {
-            throw new NegetiveDimentionException();
+    static int check(int r) throws Exception {
+        if (r < 0) {
+            throw new NegativeDimensionException();
         }
         return r;
     }
-    static int area(int l,int b) throws Exception
-    {
-        if(l<0||b<0)
-        {
+
+    static int area(int l, int b) throws Exception {
+        if (l < 0 || b < 0) {
             throw new Exception();
         }
-        return l*b;
+        return l * b;
     }
-    static int meth1()throws Exception
-    {
-        return area(-10,100);
+
+    static int meth1() throws Exception {
+        return area(-10, 100);
     }
-    static int fun1() 
-    {
-        return 10/2;
+
+    static int fun1() {
+        return 10 / 2;
     }
-    static void fun2()
-    {
+
+    static void fun2() {
         fun1();
     }
-    static void fun3()
-    {
+
+    static void fun3() {
         fun2();
     }
-    public static void main(String []args) throws Exception
-    {
-        try
-        {
+
+    public static void main(String[] args) throws Exception {
+        try {
             fun3();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e);
         }
-        try
-        {
+        try {
             meth1();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e);
         }
-        try
-        {
+        try {
             check(-11);
-        }
-        catch(NegetiveDimentionException e)
-        {
+        } catch (NegativeDimensionException e) {
             System.out.println(e);
         }
     }

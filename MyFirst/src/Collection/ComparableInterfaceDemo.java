@@ -11,33 +11,29 @@ package Collection;
 
 import java.util.*;
 
-class Point implements Comparable
-{
+class Point implements Comparable<Point> {
     int x;
     int y;
-    Point(int x,int y)
-    {
-        this.x=x;
-        this.y=y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
-    //I should have a toString method for printing this values
-    public String toString()
-    {
-        return "x="+x+"y="+y;
+
+    // I should have a toString method for printing these values
+    public String toString() {
+        return "x=" + x + " y=" + y;
     }
-    
-    public int compareTo(Object o)
-    {
-        Point p=(Point)o;
-        if(this.x<p.x)
+
+    public int compareTo(Point p) {
+        if (this.x < p.x)
             return -1;
-        else if(this.x>p.x)
+        else if (this.x > p.x)
             return 1;
-        else
-        {
-            if(this.y<p.y)
+        else {
+            if (this.y < p.y)
                 return -1;
-            else if(this.y>p.y)
+            else if (this.y > p.y)
                 return 1;
             else
                 return 0;
@@ -45,18 +41,19 @@ class Point implements Comparable
     }
 }
 
-//Previously in the treeSet example we stored integers but now we'll store objects of our own class 
-//If we are storing objects of our own class then we have to implement the comparable interface - so we can compare 2 objects of our class - this can be done by overriding the compare() function of the comparable interface
+// Previously in the TreeSet example, we stored integers, but now we'll store objects of our own class.
+// If we are storing objects of our own class, then we have to implement the Comparable interface so that we can compare two objects of our class.
+// This can be done by overriding the compareTo() function of the Comparable interface.
 public class ComparableInterfaceDemo {
-    public static void main(String args[])
-    {
-        TreeSet<Point> ts=new TreeSet<>();
-        
-        ts.add(new Point(1,1));
-        ts.add(new Point(5,5));
-        ts.add(new Point(5,2));
-        //This will genereally give an error cuz Tree Set is a sorted set and it will require to be specified of how to sort this object
-        //To justify the above point the class must implement the comparable interface
+    public static void main(String[] args) {
+        TreeSet<Point> ts = new TreeSet<>();
+
+        ts.add(new Point(1, 1));
+        ts.add(new Point(5, 5));
+        ts.add(new Point(5, 2));
+
+        // This will generally give an error because TreeSet is a sorted set and it requires a way to sort these objects.
+        // To resolve this issue, the class must implement the Comparable interface.
         System.out.println(ts);
     }
 }

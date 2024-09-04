@@ -9,31 +9,22 @@ package ExceptionHandling;
  * @author nithish
  */
 
+// Use the AutoCloseable interface to automatically close resources within the try block.
+// `finally` will definitely get executed, whether there is an exception or not.
 
-//Use AutoClosable interface to automatically close resources within the try block
-//finally will get defenitely get executed even if there is exception or no exception
-
-public class finallyDemo {
-    static void meth1()throws Exception
-    {
-        try
-        {
+public class FinallyDemo {
+    static void meth1() throws Exception {
+        try {
             throw new Exception();
-        }
-        finally
-        {
+        } finally {
             System.out.println("final message");
-            
         }
     }
-    public static void main(String []args) throws Exception
-    {
-        try
-        {
-        System.out.println(10/5);
-        }
-        finally     //THis can be written even without a catch block
-        {
+
+    public static void main(String[] args) throws Exception {
+        try {
+            System.out.println(10 / 5);
+        } finally {  // This can be written even without a catch block.
             System.out.println("final message");
         }
     }

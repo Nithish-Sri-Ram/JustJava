@@ -10,16 +10,16 @@ package Multithreading;
  */
 class MyThread extends Thread
 {
-    public MyThread(String name)      //Yes we can define a constructor for extended thread class
+    public MyThread(String name)      // Yes, we can define a constructor for an extended thread class
     {
-        super(name);        //now the name for MyThread will be set
+        super(name);        // Now the name for MyThread will be set
     }
     public void run()
     {
-        int count=1;
-        while(true)
+        int count = 1;
+        while (true)
         {
-            System.out.println("Thread "+count++);
+            System.out.println("Thread " + count++);
         }
     }
 }
@@ -27,13 +27,13 @@ class MyThread extends Thread
 public class yieldDemo {
     public static void main(String []args) throws Exception
     {
-        MyThread t1=new MyThread("My Name 1");
-        t1.start();
-        int i=1;
-        while(true)
+        MyThread t1 = new MyThread("My Name 1");
+        t1.start();  // Starts the MyThread instance
+        int i = 1;
+        while (true)
         {
-            System.out.println("Main "+i++);
-            Thread.yield();     //This yields more time to MyThread - mostly used when faced a starving situation
+            System.out.println("Main " + i++);
+            Thread.yield();     // This yields more time to MyThread - mostly used when facing a starvation situation
         }
     }
 }
